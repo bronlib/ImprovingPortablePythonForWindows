@@ -56,7 +56,7 @@ goto quit
 
 :end
 echo ERRORS, please check and retry
-goto quit
+
 
 :quit
 
