@@ -1,10 +1,10 @@
 
 @echo on
 
-set target_version=3.10.1
+set target_version=3.10.0
 
 set target_python=python-%target_version%.exe
-set target_pythondir="%~dp0\Python%target_version%"
+set target_pythondir="%~dp0\win-Python%target_version%"
 set tmp_dir="%~dp0\Python_tmp"
 
 
@@ -36,10 +36,10 @@ if exist %OUTPUT% (
 	goto end
 )
 
-goto end
+::goto end
 
 echo First: Install, unfortunately, Python wants to change the registry
-%target_python% /quiet InstallAllUsers=0  TargetDir=%tmp_dir% AssociateFiles=0 Shortcuts=0 Include_doc=0 Include_launcher=0 
+%target_python% /quiet InstallAllUsers=0  TargetDir=%tmp_dir% AssociateFiles=0 Shortcuts=0 Include_doc=1 Include_launcher=0 
 
 echo Second: Copy 
 xcopy %tmp_dir% %target_pythondir% /E /I /H
